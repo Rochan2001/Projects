@@ -1,2 +1,2 @@
 # Projects
-Going to start my coding journey now!
+Trying to get better everyday
