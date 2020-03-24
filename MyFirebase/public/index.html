@@ -6,15 +6,85 @@
     <title>Document</title>
     <script src="/__/firebase/7.10.0/firebase-app.js"></script>
     <script src="/__/firebase/7.10.0/firebase-firestore.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div class="container">
+        <div class="row py-5">
+            <div class="col-lg-9 mx-auto text-white text-center">
+                <h1 class="display-4">Faculty Centre</h1>
+                <p class="lead mb-0">Get information of students</p>
+                <p class="lead">Details below
+                </p>
+            </div>
+        </div>
+
+
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto">
+
+                <div class="input-group">
+
+                    <input class="form-control py-2 rounded-pill mr-1 pr-5" type="search">
+                    <div class="input-group-prepend">
+                        <button id="button-addon2" type="submit" class="btn btn-link text-warning"><i class="fa fa-search"></i></button>
+                    </div>
+
+                </div>
+                <br>
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Handle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+
+    </div>
+    <script>
+    </script>
+
+    <!--
     <h1>My firebase page</h1>
     <form id=“fireform”>
         <ul id="firelist">
 
         </ul>
     </form>
+    -->
     <!-- The core Firebase JS SDK is always required and must be listed first -->
 
 
@@ -27,6 +97,7 @@
         const studLIst = document.getElementById('firelist');
 
         function readFromFire(elem) {
+            /*
             //create li elements
             var li_1 = document.createElement('li');
             var li_2 = document.createElement('li');
@@ -46,6 +117,7 @@
             studLIst.appendChild(li_1);
             studLIst.appendChild(li_2);
             studLIst.appendChild(li_3);
+            */
 
 
         }
@@ -53,7 +125,7 @@
         console.log(db);
         db.collection("Users").get().then((quickview) => {
             console.log(quickview.docs.forEach(elem => {
-                console.log(elem);
+                console.log(elem.data());
             }));
         })
     </script>
