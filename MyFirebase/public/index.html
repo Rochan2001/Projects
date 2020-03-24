@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/__/firebase/7.10.0/firebase-app.js"></script>
+    <script src="/__/firebase/7.10.0/firebase-firestore.js"></script>
+</head>
+
+<body>
+    <h1>My firebase page</h1>
+    <form id=“fireform”>
+        <ul id="firelist">
+
+        </ul>
+    </form>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+             https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+    <script>
+        const studLIst = document.getElementById('firelist');
+
+        function readFromFire(elem) {
+            //create li elements
+            var li_1 = document.createElement('li');
+            var li_2 = document.createElement('li');
+            var li_3 = document.createElement('li');
+            var studName = document.createElement('span');
+            var studEmail = document.createElement('span');
+            var studrollno = document.createElement('span');
+            li_1.setAttribute('data-id-1', elem.id);
+            li_2.setAttribute('data-id-2', elem.id);
+            li_3.setAttribute('data-id-3', elem.id);
+            studName.textContent = "Name: " + elem.data().name;
+            studEmail.textContent = "Email: " + elem.data().email;
+            studrollno.textContent = "Rollno: " + elem.data().rollno;
+            li_1.appendChild(studName);
+            li_2.appendChild(studEmail);
+            li_3.appendChild(studrollno);
+            studLIst.appendChild(li_1);
+            studLIst.appendChild(li_2);
+            studLIst.appendChild(li_3);
+
+
+        }
+        const db = firebase.firestore();
+        console.log(db);
+        db.collection("Users").get().then((quickview) => {
+            console.log(quickview.docs.forEach(elem => {
+                console.log(elem);
+            }));
+        })
+    </script>
+
+</body>
+
+</html>
